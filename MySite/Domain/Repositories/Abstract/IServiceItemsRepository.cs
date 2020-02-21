@@ -8,9 +8,9 @@ namespace MySite.Domain.Repositories.Abstract
 {
     public interface IServiceItemsRepository
     {
-        IQueryable<ServiceItem> GetServiceItems();
-        ServiceItem GetServiceItemById(Guid id);
-        void SaveServiceItem(ServiceItem entityy);
+        IQueryable<SeviceItem> GetServiceItems();
+        SeviceItem GetServiceItemById(Guid id);
+        void SaveServiceItem(SeviceItem entityy);
         void DeleteServiceItem(Guid id);
 
     }
