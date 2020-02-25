@@ -37,7 +37,7 @@ namespace MySite.Domain
             });
             modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
-                RoleId = "8af10569-b018-4fe7-a380-7d6a14c70b74",
+                RoleId = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
                 UserId = "3b62472e-4f66-49fa-a20f-e7685b9565d8"
             });
 
@@ -55,7 +55,7 @@ namespace MySite.Domain
             });
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
-                Id = new Guid("4aa76a4cc59d-409a-84c1-06e6487a137a"),
+                Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
                 CodeWord = "PageContacts",
                 Title = "Контакты"
             });

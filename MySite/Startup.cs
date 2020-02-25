@@ -49,9 +49,15 @@ namespace MySite
                 options.SlidingExpiration = true;
             });
 
+            services.AddAuthorization(x =>
+            {
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+            });
 
-
-            services.AddControllersWithViews()
+            services.AddControllersWithViews(x => 
+            {
+                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+            })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
         }
         
@@ -68,8 +74,10 @@ namespace MySite
             app.UseAuthentication();
             app.UseAuthorization();
             
+            
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("admin", "{area:exist}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
